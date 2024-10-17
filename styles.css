@@ -5,14 +5,14 @@ body {
     background-image: url('enchanted-forest.jpg'); /* Your background image */
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden; /* Prevent scrolling */
+    background-repeat: repeat;
+    height: 200vh;
+    width: 200vw;
+    overflow: auto; /* Prevent scrolling */
     cursor: url('cursor.png') 16 16, auto;
 }
 
-button, #heartButton, #instructionButton, .clickable {
+button, #heartButton, #instructionButton, .image-button, .clickable {
     cursor: url('pointer.png') 16 16, pointer;
 }
 
@@ -57,7 +57,6 @@ button, #heartButton, #instructionButton, .clickable {
     background-color: white;
     border: 5px solid #ff0088;
     border-radius: 3px;
-    cursor: pointer;
     transition: background-color 0.3s;
 }
 
@@ -76,7 +75,6 @@ button, #heartButton, #instructionButton, .clickable {
 .heart-container {
     position: relative; /* Relative positioning for the text to overlay */
     display: inline-block; /* Keep the heart container inline */
-    cursor: pointer;
 }
 
 .heart-image {
@@ -100,8 +98,8 @@ button, #heartButton, #instructionButton, .clickable {
 
 .stars-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 200vw;
+    height: 200vh;
     pointer-events: none;
 }
 
@@ -109,10 +107,10 @@ button, #heartButton, #instructionButton, .clickable {
     position: absolute;
     opacity: 0;
     animation: twinkle 1.5s infinite alternate;
-    width: 30px;
-    height: 30px;
-    max-width: 50px;
-    max-height: 50px;
+    width: 40px;
+    height: 40px;
+    max-width: 55px;
+    max-height: 55px;
 }
 
 @keyframes twinkle {
@@ -127,6 +125,31 @@ button, #heartButton, #instructionButton, .clickable {
     }
 }
 
+.image-button {
+    position: absolute;
+}
+
+.image-button img {
+    width: 100px;
+    height: auto;
+}
+
+.text-box {
+    display: none; /* Hidden initially */
+    position: absolute; /* Position relative to the image */
+    background: white;
+    border: 1px solid black;
+    padding: 5px;
+    width: 150px; /* Adjust width as needed */
+    z-index: 100; /* Ensures it appears above other elements */
+}
+
+.image-button.active .text-box {
+    display: block; /* Shows the text box when the image is clicked */
+}
+
+
+
 .hidden-item {
     position: absolute;
     width: 100px;
@@ -136,8 +159,7 @@ button, #heartButton, #instructionButton, .clickable {
 .hidden-btn {
     border: none;
     background: none;
-    cursor: url('pointer.png'), pointer;
-    position: relative;
+    position: absolute;
     display: inline-block;
 }
 
