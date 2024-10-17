@@ -125,6 +125,11 @@ button, #heartButton, #instructionButton, .image-button, .clickable {
     }
 }
 
+.button-container {
+    pointer-events: auto;
+    z-index: 10;
+}
+
 .image-button {
     position: absolute;
 }
@@ -150,48 +155,3 @@ button, #heartButton, #instructionButton, .image-button, .clickable {
 
 
 
-.hidden-item {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-}
-
-.hidden-btn {
-    border: none;
-    background: none;
-    position: absolute;
-    display: inline-block;
-}
-
-.hidden-btn img {
-    width: 100px;
-    height: 100px;
-    display: block; /* Ensure image is displayed */
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.5s;
-}
-
-.hidden-btn.active img {
-    opacity: 1; /* Show image when active */
-}
-
-.hidden-text {
-    display: none; /* Initially hidden */
-    opacity: 0;
-    transition: opacity 0.5s;
-    background-color: white; /* Optional background for readability */
-    color: black;
-    border: 2px solid black; /* Optional border */
-    padding: 5px;
-    position: absolute;
-    top: 110%; /* Adjust position if needed */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center alignment */
-    width: 150px; /* Set width */
-    z-index: 2; /* Ensure it appears above the image */
-}
-
-.hidden-btn.active .hidden-text {
-    display: block; /* Show text when button is active */
-    opacity: 1; /* Fade in text */
-}

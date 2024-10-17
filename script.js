@@ -100,30 +100,38 @@ document.querySelectorAll('.image-button').forEach(button => {
     });
 });
 
-// Function to position elements randomly
-function positionElementsRandomly() {
-    // Get all elements with the class "image-button"
-    const imageButtons = document.querySelectorAll('.image-button');
+// Function to position button containers randomly
+function positionButtonContainersRandomly() {
+    // Get all elements with the class "button-container"
+    const buttonContainers = document.querySelectorAll('.button-container');
 
-    // Loop through each element and position it randomly
-    imageButtons.forEach(button => {
+    // Loop through each button container and position it randomly
+    buttonContainers.forEach(container => {
         // Get the viewport dimensions
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
 
         // Calculate random positions (adjust to keep them within bounds)
-        const randomX = Math.random() * (viewportWidth - button.offsetWidth);
-        const randomY = Math.random() * (viewportHeight - button.offsetHeight);
+        const randomX = Math.random() * (viewportWidth - container.offsetWidth);
+        const randomY = Math.random() * (viewportHeight - container.offsetHeight);
 
         // Set the position using CSS
-        button.style.position = 'absolute';
-        button.style.left = `${randomX}px`;
-        button.style.top = `${randomY}px`;
+        container.style.position = 'absolute';
+        container.style.left = `${randomX}px`;
+        container.style.top = `${randomY}px`;
     });
 }
 
 // Run the function when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', positionElementsRandomly);
+document.addEventListener('DOMContentLoaded', function () {
+    positionElementsRandomly(); // Position hidden elements
+    positionStars(); // Position stars randomly
+    applyCustomCursor(); // Apply the custom cursor
+    positionButtonContainersRandomly(); // Randomly position the button containers
+});
+
+// Reposition button containers on window resize
+window.addEventListener('resize', positionButtonContainersRandomly);
 
 
 
