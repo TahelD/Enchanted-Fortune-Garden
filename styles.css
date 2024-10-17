@@ -57,7 +57,7 @@ button, #heartButton, #instructionButton, .clickable {
     background-color: white;
     border: 5px solid #ff0088;
     border-radius: 3px;
-    cursor: url('pointer.png') 16 16, pointer;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
@@ -76,7 +76,7 @@ button, #heartButton, #instructionButton, .clickable {
 .heart-container {
     position: relative; /* Relative positioning for the text to overlay */
     display: inline-block; /* Keep the heart container inline */
-    cursor: url('pointer.png') 16 16, pointer;
+    cursor: pointer;
 }
 
 .heart-image {
@@ -136,7 +136,7 @@ button, #heartButton, #instructionButton, .clickable {
 .hidden-btn {
     border: none;
     background: none;
-    cursor: url('pointer.png') 16 16, pointer;
+    cursor: url('pointer.png'), pointer;
     position: relative;
     display: inline-block;
 }

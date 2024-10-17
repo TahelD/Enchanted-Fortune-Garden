@@ -49,31 +49,24 @@ heartButton.addEventListener('click', function() {
     button.style.display = 'block'; // Show button again
 });
 
-// Select all hidden buttons
-const hiddenButtons = document.querySelectorAll('.hidden-btn');
-
-hiddenButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Toggle the 'active' class on the clicked button
-        this.classList.toggle('active');
+document.querySelectorAll('.hidden-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        button.classList.toggle('active'); // Toggle the hidden content
     });
 });
 
+document.querySelectorAll('.hidden-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        button.classList.toggle('active'); // Toggle the hidden content
+    });
+});
+
+// Randomly place each hidden item
 function randomPosition() {
     const items = document.querySelectorAll('.hidden-item');
     items.forEach(item => {
-        // Get the width and height of the hidden item
-        const itemWidth = item.offsetWidth;
-        const itemHeight = item.offsetHeight;
-
-        // Calculate the maximum x and y position
-        const maxX = window.innerWidth - itemWidth;
-        const maxY = window.innerHeight - itemHeight;
-
-        // Ensure the item stays within the screen bounds
-        const randomX = Math.floor(Math.random() * maxX);
-        const randomY = Math.floor(Math.random() * maxY);
-
+        const randomX = Math.floor(Math.random() * (window.innerWidth - 100)); // Width minus element size
+        const randomY = Math.floor(Math.random() * (window.innerHeight - 100)); // Height minus element size
         item.style.left = `${randomX}px`;
         item.style.top = `${randomY}px`;
     });
