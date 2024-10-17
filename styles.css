@@ -1,1 +1,175 @@
+/* Body styles: set the background image */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('enchanted-forest.jpg'); /* Your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Prevent scrolling */
+    cursor: url('cursor.png') 16 16, auto;
+}
 
+button, #heartButton, #instructionButton, .clickable {
+    cursor: url('pointer.png') 16 16, pointer;
+}
+
+.animated-title {
+    text-align: center;
+    font-family: "rhythm-two-solid", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 8vw;
+    color: white;
+    margin-top: 30px;
+    text-shadow: 
+        -2px -2px 0 #ff0088,
+        2px -2px 0 #ff0088,
+        -2px 2px 0 #ff0088,
+        2px 2px 0 #ff0088,
+        -1px -1px 0 #e175ab,
+        1px -1px 0 #e175ab,
+        -1px 1px 0 #e175ab,
+        1px 1px 0 #e175ab;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.button {
+    display: block;
+    margin:  30px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #ff0088;
+    background-color: white;
+    border: 5px solid #ff0088;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ff0088;
+    color: white;
+}
+
+
+.hidden-message {
+    display: none; /* Initially hide the message */
+    text-align: center; /* Center the text */
+    position: relative;
+}
+
+.heart-container {
+    position: relative; /* Relative positioning for the text to overlay */
+    display: inline-block; /* Keep the heart container inline */
+    cursor: pointer;
+}
+
+.heart-image {
+    width: 260px; /* Adjust size of the heart image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.heart-text {
+    position: absolute; /* Position text absolutely within the container */
+    top: 43%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white; /* Text color */
+    font-size: 16px; /* Adjust the font size as needed */
+    text-align: center; /* Center text inside the heart */
+    padding: 2px; /* Optional padding */
+    max-width: 180px; /* Limit text width to fit inside heart */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+
+.stars-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    opacity: 0;
+    animation: twinkle 1.5s infinite alternate;
+    width: 30px;
+    height: 30px;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.hidden-item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.hidden-btn {
+    border: none;
+    background: none;
+    cursor: url('pointer.png'), pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.hidden-btn img {
+    width: 100px;
+    height: 100px;
+    display: block; /* Ensure image is displayed */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s;
+}
+
+.hidden-btn.active img {
+    opacity: 1; /* Show image when active */
+}
+
+.hidden-text {
+    display: none; /* Initially hidden */
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-color: white; /* Optional background for readability */
+    color: black;
+    border: 2px solid black; /* Optional border */
+    padding: 5px;
+    position: absolute;
+    top: 110%; /* Adjust position if needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center alignment */
+    width: 150px; /* Set width */
+    z-index: 2; /* Ensure it appears above the image */
+}
+
+.hidden-btn.active .hidden-text {
+    display: block; /* Show text when button is active */
+    opacity: 1; /* Fade in text */
+}
